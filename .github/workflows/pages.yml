@@ -23,23 +23,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Build static site
-        run: npx vite build --config vite.pages.config.ts
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare published files
+        run: |
+          mkdir _site
+          cp index.html favicon.svg _site/
+          cp -R assets _site/assets
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pages-dist
+          path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
