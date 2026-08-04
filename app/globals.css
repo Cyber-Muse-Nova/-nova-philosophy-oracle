@@ -845,7 +845,7 @@ button:focus-visible {
 }
 
 .glass-panel,
-.stone-card {
+.meaning-card {
   position: relative;
   min-height: 340px;
   padding: 38px 42px;
@@ -926,7 +926,7 @@ button:focus-visible {
 .synthesis-panel h2 i { color: var(--rose); font-weight: 400; }
 .synthesis-panel strong { color: var(--gold); font-weight: 400; }
 
-.stone-card {
+.meaning-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -937,10 +937,100 @@ button:focus-visible {
     linear-gradient(125deg, rgba(38,15,58,.8), rgba(10,5,21,.76));
 }
 
-.stone-card > span { color: var(--gold); font-size: 10px; letter-spacing: .22em; }
-.stone-card h2 { position: relative; z-index: 1; margin: 16px 0 12px; font-family: Georgia, "Songti SC", serif; font-size: clamp(30px, 3.6vw, 48px); font-weight: 400; }
-.stone-card p { position: relative; z-index: 1; max-width: 490px; margin: 0; color: rgba(232,224,240,.48); font-family: Georgia, "Songti SC", serif; font-size: 13px; line-height: 1.8; }
-.stone-glow { position: absolute; right: 7%; width: 150px; height: 150px; border: 1px solid rgba(255,208,160,.42); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,112,184,.42), rgba(96,208,255,.22)); clip-path: polygon(45% 0, 88% 15%, 100% 58%, 70% 100%, 18% 91%, 0 42%); filter: drop-shadow(0 0 28px rgba(255,112,184,.35)); opacity: .68; transform: rotate(18deg); }
+.meaning-card > span { color: var(--gold); font-size: 10px; letter-spacing: .22em; }
+.meaning-card h2 { position: relative; z-index: 1; margin: 16px 0 12px; font-family: Georgia, "Songti SC", serif; font-size: clamp(30px, 3.6vw, 48px); font-weight: 400; }
+.meaning-card p { position: relative; z-index: 1; max-width: 490px; margin: 0; color: rgba(232,224,240,.48); font-family: Georgia, "Songti SC", serif; font-size: 13px; line-height: 1.8; }
+.meaning-glow { position: absolute; right: 7%; width: 150px; height: 150px; border: 1px solid rgba(255,208,160,.42); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,112,184,.42), rgba(96,208,255,.22)); clip-path: polygon(45% 0, 88% 15%, 100% 58%, 70% 100%, 18% 91%, 0 42%); filter: drop-shadow(0 0 28px rgba(255,112,184,.35)); opacity: .68; transform: rotate(18deg); }
+
+.philosophy-atlas {
+  margin: 10px 0 56px;
+  border-top: 1px solid rgba(232,224,240,.12);
+}
+
+.atlas-header {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 470px);
+  gap: 40px;
+  align-items: end;
+  padding: 58px 10px 34px;
+}
+
+.atlas-header h2 {
+  margin: 12px 0 0;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 400;
+}
+
+.atlas-header > p {
+  margin: 0;
+  color: rgba(232,224,240,.48);
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.atlas-list { border-top: 1px solid rgba(232,224,240,.12); }
+
+.atlas-item {
+  border-bottom: 1px solid rgba(232,224,240,.1);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.018), transparent);
+}
+
+.atlas-item--primary {
+  border-color: rgba(255,208,160,.28);
+  background: linear-gradient(90deg, rgba(255,112,184,.07), rgba(96,208,255,.04), transparent);
+}
+
+.atlas-item summary {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto 38px;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.atlas-item summary::-webkit-details-marker { display: none; }
+.atlas-number { color: rgba(232,224,240,.28); font-family: Georgia, serif; font-size: 11px; letter-spacing: .12em; }
+.atlas-name { display: flex; align-items: baseline; gap: 18px; min-width: 0; }
+.atlas-name b { font-family: Georgia, "Songti SC", serif; font-size: 20px; font-weight: 400; }
+.atlas-name i { overflow: hidden; color: rgba(232,224,240,.3); font-size: 8px; font-style: normal; letter-spacing: .22em; text-overflow: ellipsis; white-space: nowrap; }
+.atlas-item summary > em { color: var(--gold); font-size: 9px; font-style: normal; letter-spacing: .16em; }
+.atlas-toggle { color: var(--rose); font-family: Georgia, serif; font-size: 24px; text-align: center; transition: transform .25s ease; }
+.atlas-item[open] .atlas-toggle { transform: rotate(45deg); }
+
+.atlas-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  padding: 0 12px 30px 76px;
+}
+
+.atlas-content > div {
+  padding: 25px 28px;
+  border: 1px solid rgba(232,224,240,.08);
+  background: rgba(10,5,21,.46);
+}
+
+.atlas-content > div > span { color: var(--rose); font-size: 9px; letter-spacing: .2em; }
+.atlas-content p,
+.atlas-content li { color: rgba(232,224,240,.58); font-family: Georgia, "Songti SC", serif; font-size: 13px; line-height: 1.9; }
+.atlas-content p { margin: 12px 0 0; }
+.atlas-content ul { margin: 12px 0 0; padding-left: 18px; }
+.atlas-content li + li { margin-top: 7px; }
+.atlas-content blockquote {
+  grid-column: 1 / -1;
+  margin: 14px 0 0;
+  padding: 22px 28px;
+  border-left: 1px solid var(--gold);
+  background: linear-gradient(90deg, rgba(255,208,160,.07), transparent);
+  color: rgba(255,232,206,.78);
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
 
 .result-actions {
   display: flex;
@@ -997,6 +1087,7 @@ button:focus-visible {
   .result-title .eyebrow { justify-content: center; }
   .result-title blockquote { margin-inline: auto; text-align: left; }
   .result-grid { grid-template-columns: 1fr; }
+  .atlas-header { grid-template-columns: 1fr; align-items: start; }
 }
 
 @media (max-width: 680px) {
@@ -1049,11 +1140,22 @@ button:focus-visible {
   .result-title blockquote { padding-left: 17px; font-size: 15px; }
   .result-grid { padding-top: 38px; }
   .glass-panel,
-  .stone-card { min-height: auto; padding: 28px 23px; }
+  .meaning-card { min-height: auto; padding: 28px 23px; }
   .glass-panel h2 { font-size: 21px; }
   .duality { grid-template-columns: 1fr; }
   .score-row { grid-template-columns: 22px 72px 1fr 27px; gap: 8px; }
-  .stone-glow { right: -30px; width: 115px; height: 115px; opacity: .38; }
+  .meaning-glow { right: -30px; width: 115px; height: 115px; opacity: .38; }
+  .philosophy-atlas { margin-bottom: 38px; }
+  .atlas-header { gap: 18px; padding: 42px 4px 26px; }
+  .atlas-header > p { font-size: 12px; }
+  .atlas-item summary { grid-template-columns: 30px minmax(0, 1fr) 28px; gap: 10px; padding: 20px 4px; }
+  .atlas-name { display: block; }
+  .atlas-name b { display: block; font-size: 18px; }
+  .atlas-name i { display: block; margin-top: 5px; font-size: 7px; }
+  .atlas-item summary > em { display: none; }
+  .atlas-content { grid-template-columns: 1fr; padding: 0 0 24px; }
+  .atlas-content > div { padding: 22px 20px; }
+  .atlas-content blockquote { padding: 20px; font-size: 14px; }
   .result-actions { flex-direction: column; gap: 16px; padding-bottom: 55px; }
   .result-footer { grid-template-columns: 1fr; text-align: center; }
   .result-footer > div { justify-content: center; }
