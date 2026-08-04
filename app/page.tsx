@@ -373,12 +373,13 @@ export default function Home() {
 
   const shareResult = async () => {
     const text = `我的哲学主星是「${profile.name}」${profile.sigil}，副星是「${secondaryProfile.name}」。\n${profile.motto}\n—— 意识坐标 · NOVA CRYSTAL`;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?share=crystal`;
     try {
       if (navigator.share) {
-        await navigator.share({ title: "我的哲学意识坐标", text, url: window.location.href });
+        await navigator.share({ title: "我的哲学意识坐标", text, url: shareUrl });
         setShareLabel("坐标已发送到宇宙");
       } else {
-        await navigator.clipboard.writeText(`${text}\n${window.location.href}`);
+        await navigator.clipboard.writeText(`${text}\n${shareUrl}`);
         setShareLabel("已复制到剪贴板");
       }
     } catch {
